@@ -47,7 +47,7 @@ def payment_action(request):
         balances.coworker4 = balanceList[5]
         balances.coworker5 = balanceList[6]
         balances.save()
-        print(balanceList)
+        #print(balanceList)
 
     context = {'bobBalance':balances.bob, 'jeremyBalance':balances.jeremy,
                'coworker1Balance': balances.coworker1, 'coworker2Balance':balances.coworker2,

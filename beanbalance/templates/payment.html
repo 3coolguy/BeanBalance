@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<form class="post-form" method="POST">
+<form class="post-form" method="POST" onsubmit="return validateForm()">
     <table>
         <thead>
             <tr>
@@ -12,10 +12,12 @@
         <tbody id="table-body">
             <tr>
                 <td>Bob</td>
+                <td>{{bobBalance}}</td>
                 <td><input type="decimal" id="textBob" name="textBob"></td>
             </tr>
             <tr>
                 <td>Jeremy</td>
+                <td>{{jeremyBalance}}</td>
                 <td><input type="decimal" id="textJeremy" name="textJeremy"></td>
             </tr>
         </tbody>
@@ -23,10 +25,9 @@
     <button id="submitButton" type="submit">Pay</button>
     {% csrf_token %}
 </form>
-<p>{{bobBalance}}</p>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            createTable();
-        });
-    </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        createTable();
+    });
+</script>
 {% endblock %}
