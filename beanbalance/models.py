@@ -11,3 +11,9 @@ class Balance(models.Model):
     coworker5 = models.DecimalField(max_digits=6, decimal_places=2, default = 0.00)
     def __str__(self):
         return f"Entry(id={self.id})"
+    
+class History(models.Model):
+    buyer = models.CharField(max_length=20)
+    date = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return f"Entry(id={self.id})"

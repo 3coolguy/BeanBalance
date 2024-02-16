@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from beanbalance.models import Balance
+from beanbalance.models import Balance, History
 from decimal import Decimal
+from django.utils import timezone
+
 
 # Create your views here.
 def payment_action(request):
@@ -28,7 +30,7 @@ def payment_action(request):
         enumeratedBalances = list(enumerate(newBalances))
         # Sorting it by preference of who to pay. index 0 being the preferred choice.
         sortedBalances = sorted(enumeratedBalances, key=lambda x: x[1], reverse=True)
-        print(sortedBalances)
+        #print(sortedBalances)
 
         # Subtract the sum of non-payers coffees from balance.
         balanceList[sortedBalances[0][0]] = sortedBalances[0][1]
@@ -48,6 +50,9 @@ def payment_action(request):
         balances.coworker5 = balanceList[6]
         balances.save()
         #print(balanceList)
+        names = ['Bob', 'Jeremy', 'Coworker1', 'Coworker2', 'Coworker3', 'Coworker4', 'Coworker5']
+        newHistory = History(buyer = names[sortedBalances[0][0]],  date = timezone.now())
+        newHistory.save()
 
     context = {'bobBalance':balances.bob, 'jeremyBalance':balances.jeremy,
                'coworker1Balance': balances.coworker1, 'coworker2Balance':balances.coworker2,
@@ -57,4 +62,4 @@ def payment_action(request):
     return render(request, 'payment.html', context)
 
 def history_action(request):
-    return render(request, 'payment.html')
+    return render(request, 'history.html', {'buyers' : History.objects.all().order_by('-date')})

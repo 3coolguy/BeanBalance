@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+    <div>
+        <span>History!!</span>
+    </div>
+    <br>
+    {% for history in buyers %}
+        <div>
+            <p>{{history.buyer}}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

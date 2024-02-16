@@ -69,3 +69,20 @@ table {
     border-radius: 4px;
     box-sizing: border-box; /* Include padding and border in element's total width and height */
   }
+
+  button{
+    width:10%;
+    margin-left:45vw;
+  }
+
+  span {
+    font-size: 20px; /* Increase font size */
+    font-weight: bold; /* Make the text bold */
+    color: #333; /* Dark text color */
+}
+
+/* Style for the span */
+p {
+    font-size: 16px; /* Decrease font size */
+    color: #666; /* Lighter text color */
+}
