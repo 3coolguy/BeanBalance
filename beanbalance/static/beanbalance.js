@@ -8,7 +8,7 @@ function createTable() {
         idCell.textContent = 'Coworker ' + i; // Display the ID
 
         var balanceCell = document.createElement('td');
-        balanceCell.textContent = 'balance'
+        balanceCell.textContent = document.getElementById('hiddenField' + i).value
 
         var textFieldCell = document.createElement('td');
         var textField = document.createElement('input');

@@ -23,15 +23,15 @@ def payment_action(request):
         for i in range(len(balanceList)):
             potentialBalance = balanceList[i] - (sum(costs[:i]) + sum(costs[i+1:]))
             newBalances.append(potentialBalance)
-        
+
         # Saving indices to list. Keep track of each balance even after sorting.
         enumeratedBalances = list(enumerate(newBalances))
         # Sorting it by preference of who to pay. index 0 being the preferred choice.
         sortedBalances = sorted(enumeratedBalances, key=lambda x: x[1], reverse=True)
-        #print(sortedBalances)
+        print(sortedBalances)
 
         # Subtract the sum of non-payers coffees from balance.
-        balanceList[sortedBalances[0][0]] += sortedBalances[0][1]
+        balanceList[sortedBalances[0][0]] = sortedBalances[0][1]
 
         # Add balance of coffee cost to those not paying
         for i in range(1, 7):

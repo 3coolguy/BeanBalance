@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+<input type="hidden" id="hiddenField1" name="hiddenField1" value={{coworker1Balance}}>
+<input type="hidden" id="hiddenField2" name="hiddenField2" value={{coworker2Balance}}>
+<input type="hidden" id="hiddenField3" name="hiddenField3" value={{coworker3Balance}}>
+<input type="hidden" id="hiddenField4" name="hiddenField4" value={{coworker4Balance}}>
+<input type="hidden" id="hiddenField5" name="hiddenField5" value={{coworker5Balance}}>
 <form class="post-form" method="POST" onsubmit="return validateForm()">
     <table>
         <thead>
