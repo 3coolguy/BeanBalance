@@ -1,1 +1,32 @@
 {% extends "base.html" %}
+{% block content %}
+<form class="post-form" method="POST">
+    <table>
+        <thead>
+            <tr>
+                <th>Consumer</th>
+                <th>Balance</th>
+                <th>Cost</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <tr>
+                <td>Bob</td>
+                <td><input type="decimal" id="textBob" name="textBob"></td>
+            </tr>
+            <tr>
+                <td>Jeremy</td>
+                <td><input type="decimal" id="textJeremy" name="textJeremy"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="submitButton" type="submit">Pay</button>
+    {% csrf_token %}
+</form>
+<p>{{bobBalance}}</p>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createTable();
+        });
+    </script>
+{% endblock %}

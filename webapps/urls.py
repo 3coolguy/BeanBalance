@@ -19,5 +19,6 @@ from django.urls import path
 from beanbalance import views
 
 urlpatterns = [
-    path('', views.payment_action, name='payment')
+    path('', views.payment_action, name='payment'),
+    path('history', views.history_action, name='history')
 ]
